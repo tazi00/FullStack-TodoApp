@@ -1,0 +1,132 @@
+.menu-box {
+  position: relative;
+  .menu-title {
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #e2e2e2;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    border-radius: 4px;
+    padding-inline: 10px;
+    cursor: pointer;
+    font-weight: 400;
+    justify-content: space-between;
+    &:active {
+      border: 1px solid #cdcdcd;
+      background-color: #f1f1f1;
+    }
+    &:hover {
+      background-color: #fafafa;
+    }
+    span {
+      .down {
+        transform: translateY(-2px);
+        display: block;
+      }
+      .up {
+        transform: translateY(5px);
+        display: block;
+      }
+    }
+  }
+
+  ul.menu-list {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    background: #fff;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    right: 0;
+    position: absolute;
+    transform-origin: right;
+    transform: scale(0, 0) translateY(0);
+    opacity: 0;
+    z-index: 9;
+    overflow: hidden;
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+    &:active {
+      background-color: #f8f8f8;
+    }
+    &:hover {
+      background-color: #f8f8f8;
+    }
+    li {
+      font-weight: 400;
+      font-size: 14px;
+      background-color: #fff;
+      padding: 10px 12px;
+      &:not(:first-child) {
+        border-top: 1px solid #ddd;
+      }
+      &:hover {
+        background: #f7f7f7;
+        cursor: pointer;
+      }
+    }
+    &.open {
+      opacity: 1 !important ;
+      transform: scale(1, 1) translateY(10px);
+      transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+}
+.model {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  display: grid;
+  place-content: center;
+  .modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #aaaaaa11;
+  }
+  .modal-main {
+    position: relative;
+    z-index: 9;
+    width: 800px;
+    max-width: 100%;
+    background: #fff;
+    .modal-header {
+      padding: 20px 20px 10px;
+      & > h2 {
+        font-size: 18px;
+        display: flex;
+        justify-content: space-between;
+        span {
+          font-size: 30px;
+          line-height: 11px;
+          cursor: pointer;
+        }
+      }
+    }
+    .modal-body {
+      padding: 10px 20px 20px;
+    }
+    .modal-footer {
+      padding: 10px 20px 10px;
+      text-align: center;
+      p {
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        align-items: center;
+        flex-direction: row-reverse;
+        svg {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
