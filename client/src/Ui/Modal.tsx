@@ -1,16 +1,14 @@
-import React from "react";
-import { createPortal } from "react-dom";
 import { ChildrenProps } from "../Layout/Reusuable";
 
-function Modal({ children }: ChildrenProps) {
-  return createPortal(
-    <>
-      <div className="model">
-        <div className="modal-overlay"></div>
-        <div className="modal-main">{children}</div>
-      </div>
-    </>,
-    document.getElementById("todo-portal")!
+interface ModalProps extends ChildrenProps {
+  close: () => void;
+}
+function Modal({ children, close }: ModalProps) {
+  return (
+    <div className="model">
+      <div className="modal-overlay" onClick={() => close()}></div>
+      <div className={`modal-main`}>{children}</div>
+    </div>
   );
 }
 

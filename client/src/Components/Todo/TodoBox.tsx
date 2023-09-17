@@ -16,11 +16,16 @@ function TodoBox() {
           </Grid>
         </div>
         <TodoTite />
-        <Grid col="3" className="gap-3">
-          <TodoItem type={"work"} />
-          <TodoItem type={"home"} />
-          <TodoItem type={"work"} />
-        </Grid>
+        <div className="todo_list-box">
+          <Grid col="3" className="gap-3">
+            <TodoItem type={"work"} />
+            <TodoItem type={"home"} />
+            <TodoItem type={"work"} />
+            <TodoItem type={"work"} />
+            <TodoItem type={"home"} />
+            <TodoItem type={"work"} />
+          </Grid>
+        </div>
       </div>
     </>
   );

@@ -117,7 +117,7 @@ header {
 // Main Component styles
 // ----------------------------------
 main {
-  padding: 40px 0 20px;
+  padding: 20px 0 0px;
 }
 // ----------------------------------
 // nav.sidebar compoennet
@@ -181,9 +181,11 @@ nav.sidebar {
   flex-direction: column;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
+  margin-bottom: 20px;
+  z-index: 9;
   &:hover {
     box-shadow: 0 0 8px -1px rgba(0, 0, 0, 0.1);
-    transform: scale(1.1);
+    transform: scale(1.05);
 
     figure > svg {
       transform: translate(0, -20px);
@@ -275,7 +277,7 @@ button {
 }
 h2.Todo_head {
   font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   line-height: 32px;
 }
 .todo-btns {
@@ -292,14 +294,6 @@ h2.Todo_head {
     gap: 10px;
   }
 }
-// @keyframes animate {
-//   0% {
-//     transform: translate(0, 0);
-//   }
-//   100% {
-//     transform: translate(200px, 0);
-//   }
-// }
 
 .todo-form {
   form {
@@ -383,3 +377,35 @@ h2.Todo_head {
     }
   }
 }
+.todo_list-box {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-top: 20px;
+  padding-inline: 20px;
+  max-height: 340px;
+  &::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #d0d0d0;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #e4e4e4;
+  }
+}
+// @keyframes animate {
+//   0% {
+//     transform: translate(0, 0);
+//   }
+//   100% {
+//     transform: translate(200px, 0);
+//   }
+// }

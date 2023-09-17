@@ -6,7 +6,7 @@ export function Main() {
   return (
     <main>
       <Container>
-        <Grid col1="1" col2="4" className="gap-2">
+        <Grid col1="1" col2="4" className="gap-4">
           <Sidebar />
           <TodoBox></TodoBox>
         </Grid>

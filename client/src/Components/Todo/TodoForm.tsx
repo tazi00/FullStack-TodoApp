@@ -1,16 +1,47 @@
-import React from "react";
-
+import React, { useState } from "react";
+import TodoDatePicker from "./TodoDatePicker";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { DatePickerProps } from "../../Ui/DatePicker";
+import { formatDate } from "../utilities/DateFormatter";
+type Inputs = {
+  title: string;
+  cattegory: string;
+  priority: string;
+  alertMsg: string;
+  desc: string;
+  startingDate: string;
+  EndingDate: string;
+};
 function TodoForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const [startingDate, setStartingDate] = useState<DatePickerProps>();
+  const [endingDate, setEndingDate] = useState<DatePickerProps>();
+  function onSubmit(data) {
+    const newdata = {
+      title: data.title,
+      cattegory: data.cattegory,
+      priority: data.priorty,
+      startingData: formatDate(startingDate),
+      endingData: formatDate(endingDate),
+      alertMsg: data.alert,
+      description: data.desc,
+    };
+    console.log(newdata);
+  }
   return (
     <div className="todo-form">
-      <form action="">
+      <form action="" onSubmit={handleSubmit(onSubmit)}>
         <div className="group">
           <label htmlFor="">Enter Title</label>
-          <input type="text" placeholder="Enter title" />
+          <input type="text" placeholder="Enter title" {...register("title")} />
         </div>
         <div className="group">
           <label htmlFor="">Cattegory</label>
-          <select name="" id="">
+          <select id="" {...register("cattegory", { required: true })}>
             <option value="">--select cattegory--</option>
             <option value="home">Home</option>
             <option value="work">Work</option>
@@ -21,7 +52,7 @@ function TodoForm() {
         </div>
         <div className="group">
           <label htmlFor="">Priorty</label>
-          <select name="" id="">
+          <select id="" {...register("priorty", { required: true })}>
             <option value="">--select Priorty--</option>
             <option value="home">Medium</option>
             <option value="work">Low</option>
@@ -31,23 +62,27 @@ function TodoForm() {
           </select>
         </div>
         <div className="group">
-          <label htmlFor="">Staring Date & time</label>
-          <input type="text" />
+          <label htmlFor="">Staring Date </label>
+          <TodoDatePicker value={startingDate} setValue={setStartingDate} />
         </div>
         <div className="group">
-          <label htmlFor="">Ending Date & time</label>
-          <input type="text" />
+          <label htmlFor="">Ending Date </label>
+          <TodoDatePicker value={endingDate} setValue={setEndingDate} />
         </div>
 
         <div className="group">
           <label htmlFor="">Your alert msg</label>
-          <input type="text" placeholder="msg" />
+          <input
+            type="text"
+            placeholder="msg"
+            {...register("alert", { required: true })}
+          />
         </div>
         <div className="group span-full">
           <label htmlFor="desc">Enter description</label>
           <textarea
-            name="desc"
             id="desc"
+            {...register("desc", { required: true })}
             placeholder="Enter description"
           ></textarea>
         </div>

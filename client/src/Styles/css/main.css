@@ -87,7 +87,7 @@ header {
   justify-content: end;
 }
 main {
-  padding: 40px 0 20px;
+  padding: 20px 0 0px;
 }
 
 nav.sidebar ul li {
@@ -136,10 +136,12 @@ nav.sidebar ul li span {
   flex-direction: column;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
+  margin-bottom: 20px;
+  z-index: 9;
 }
 .todo_list:hover {
   box-shadow: 0 0 8px -1px rgba(0, 0, 0, 0.1);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .todo_list:hover figure > svg {
   transform: translate(0, -20px);
@@ -229,7 +231,7 @@ button:hover {
 
 h2.Todo_head {
   font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   line-height: 32px;
 }
 
@@ -328,6 +330,30 @@ h2.Todo_head {
 }
 .todo-form form .group.span-full {
   grid-column: 1/-1;
+}
+
+.todo_list-box {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-top: 20px;
+  padding-inline: 20px;
+  max-height: 340px;
+}
+.todo_list-box::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 10px;
+}
+.todo_list-box::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+.todo_list-box::-webkit-scrollbar-thumb {
+  background: #d0d0d0;
+  border-radius: 10px;
+}
+.todo_list-box::-webkit-scrollbar-thumb:hover {
+  background: #e4e4e4;
 }
 
 /*# sourceMappingURL=main.css.map */
