@@ -15,7 +15,7 @@ function TodoBox() {
             <TodoBtns />
           </Grid>
         </div>
-        <TodoTite />
+        <TodoTite className="mb-0" />
         <div className="todo_list-box">
           <Grid col="3" className="gap-3">
             <TodoItem type={"work"} />

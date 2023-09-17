@@ -45,7 +45,7 @@
     transform-origin: right;
     transform: scale(0, 0) translateY(0);
     opacity: 0;
-    z-index: 9;
+    z-index: 12;
     overflow: hidden;
     transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
     &:active {
@@ -83,7 +83,7 @@
   background: transparent;
   display: grid;
   place-content: center;
-  z-index: 9;
+  z-index: 20;
   .modal-overlay {
     position: absolute;
     top: 0;

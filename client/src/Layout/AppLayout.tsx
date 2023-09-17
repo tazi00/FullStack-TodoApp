@@ -10,7 +10,9 @@ function AppLayout() {
     <div className="app_layout">
       <Header />
       <Main />
-      <footer>footer </footer>
+      <footer>
+        <p>A fullstack todo app powered by riziUI</p>
+      </footer>
       {show && <TodoModal />}
     </div>
   );

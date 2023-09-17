@@ -13,6 +13,9 @@
 .gap-4 {
   column-gap: 20px;
 }
+.mb-0 {
+  margin-bottom: 0 !important;
+}
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
