@@ -31,7 +31,7 @@ function TodoForm() {
           </select>
         </div>
         <div className="group">
-          <label htmlFor="">Starting Date & time</label>
+          <label htmlFor="">Staring Date & time</label>
           <input type="text" />
         </div>
         <div className="group">
