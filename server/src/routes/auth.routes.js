@@ -1,8 +1,8 @@
 import express from "express";
 import {
   authLogin,
+  authLogout,
   authRegister,
-  authlogout,
 } from "../controllers/auth.controller.js";
 import {
   authRegisterValidationRules,
@@ -22,5 +22,5 @@ authRouter
     checkUserExistence,
     authRegister
   );
-authRouter.route("/logout").post(authlogout);
+authRouter.route("/logout").post(authLogout);
 export default authRouter;

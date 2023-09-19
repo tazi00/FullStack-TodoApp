@@ -1,7 +1,7 @@
 import http from "http";
 import express from "express";
 import authRouter from "./routes/auth.routes.js";
-import { authenticateToken } from "./middlewares/restrictionMiddleware.js";
+import { authenticateToken } from "./middlewares/auth/restrictionMiddleware.js";
 import userRouter from "./routes/user.routes.js";
 
 const app = express();

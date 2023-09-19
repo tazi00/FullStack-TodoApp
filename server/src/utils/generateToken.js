@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { KEY } from "../middlewares/restrictionMiddleware.js";
+import { KEY } from "../middlewares/auth/restrictionMiddleware.js";
 
 export function generateToken(username) {
   const secretKey = KEY; // Replace with a strong, secret key

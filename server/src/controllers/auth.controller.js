@@ -4,6 +4,7 @@ import { usersPath } from "../utils/filepaths.js";
 import { validationResult } from "express-validator";
 import { getAllUsers } from "../model/auth.model.js";
 import { generateToken } from "../utils/generateToken.js";
+import { invalidatedTokens } from "../middlewares/auth/restrictionMiddleware.js";
 export async function authLogin(req, res) {
   try {
     const { identifier, password } = req.body;
@@ -55,6 +56,11 @@ export async function authRegister(req, res) {
   }
 }
 
-export async function authlogout(req, res) {
-  res.json({ msg: "auth logout" });
+export function authLogout(req, res) {
+  const token = req.header("Authorization");
+  if (!token) {
+    return res.status(400).json({ error: "Token not provided." });
+  }
+  invalidatedTokens.add(token);
+  res.json({ msg: "Logout successful" });
 }
