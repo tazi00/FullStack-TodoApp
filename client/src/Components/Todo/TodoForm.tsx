@@ -54,11 +54,9 @@ function TodoForm() {
           <label htmlFor="">Priorty</label>
           <select id="" {...register("priorty", { required: true })}>
             <option value="">--select Priorty--</option>
-            <option value="home">Medium</option>
-            <option value="work">Low</option>
-            <option value="freelance">High</option>
-            <option value="movies">Completed</option>
-            <option value="workout">Uncompleted</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+            <option value="high">High</option>
           </select>
         </div>
         <div className="group">

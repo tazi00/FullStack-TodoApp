@@ -13,8 +13,12 @@ function TodoSelect() {
     { id: 7, label: "High" },
     { id: 8, label: "Low" },
     { id: 9, label: "Medium" },
-    { id: 10, label: "Completed" },
-    { id: 11, label: "Uncompleted" },
+  ];
+  const StatusList = [
+    { id: 123, label: "All" },
+    { id: 9, label: "Pending" },
+    { id: 1222, label: "Completed" },
+    { id: 4434, label: "Uncompleted" },
   ];
   return (
     <div className="todo-select">
@@ -26,6 +30,10 @@ function TodoSelect() {
         <Menu key={"filter"}>
           <MenuTitle />
           <MenuList width={"300px"} data={FilterList} />
+        </Menu>
+        <Menu key={"status"}>
+          <MenuTitle />
+          <MenuList width={"300px"} data={StatusList} />
         </Menu>
       </div>
     </div>

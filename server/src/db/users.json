@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "rickzi",
+      "img": "",
+      "email": "email",
+      "todos": [
+        {
+          "id": "2133",
+          "title": "data.title",
+          "cattegory": "data.cattegor",
+          "priority": "data.priorty",
+          "startingData": "formatDate(startingDate)",
+          "endingData": "formatDate(endingDate)",
+          "alertMsg": "data.alert",
+          "description": "data.desc",
+          "status": "pending"
+        }
+      ]
+    }
+  ]
+}

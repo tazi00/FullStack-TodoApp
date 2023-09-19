@@ -10,7 +10,7 @@ function TodoBox() {
       <div className="todo_box">
         <div className={"todo-options"}>
           <TodoTite title="Filters"></TodoTite>
-          <Grid col={"2"}>
+          <Grid col1={"2"} col2={"1"}>
             <TodoSelect />
             <TodoBtns />
           </Grid>
