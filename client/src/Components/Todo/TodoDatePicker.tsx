@@ -1,4 +1,4 @@
-import { DatePicker } from "../../Ui/DatePicker";
+import { DatePicker } from "../../rickziUi/DatePicker";
 interface DatePickerProps {
   value: Date | null;
   setValue: (date: Date) => void;

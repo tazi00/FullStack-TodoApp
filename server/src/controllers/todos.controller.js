@@ -1,13 +1,9 @@
 import { getUsers } from "../model/user.model.js";
 
-export async function getUser(req, res) {
+export async function getTodos(req, res) {
   const userData = req.user;
   const parsedUser = await getUsers();
   const users = parsedUser.users;
-
-  console.log("userData.userName:", userData.username); // Add this line for debugging
-
-  // Check if userData.userName is defined and not empty
   if (userData.username && userData.username.trim() !== "") {
     // Perform a case-insensitive and trimmed comparison
     const resUser = users.find(
@@ -19,13 +15,11 @@ export async function getUser(req, res) {
 
     if (resUser) {
       // The user was found
-      const userInfo = {
+      const data = {
         id: resUser.id,
-        name: resUser.name,
-        image: resUser.img,
-        email: resUser.email,
+        todos: resUser.todos,
       };
-      res.json({ msg: "User data fetched successfully", user: userInfo });
+      res.json({ msg: "User data fetched successfully", data: data });
     } else {
       // The user was not found
       res.status(404).json({ error: "User not found" });

@@ -12,10 +12,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.5.0",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-validator": "^7.0.1",
     "jsonwebtoken": "^9.0.2",
     "nodemon": "^3.0.1",
+    "react-router-dom": "^6.16.0",
     "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^4.34.1"
   }
 }

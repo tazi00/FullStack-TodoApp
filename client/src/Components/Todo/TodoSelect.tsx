@@ -1,4 +1,4 @@
-import Menu, { MenuList, MenuTitle } from "../../Ui/Menu";
+import Menu, { MenuList, MenuTitle } from "../../rickziUi/Menu";
 
 function TodoSelect() {
   const sortingList = [

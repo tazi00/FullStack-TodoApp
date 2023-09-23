@@ -1,11 +1,12 @@
+import Login from "../Components/Auth/Login";
+import Register from "../Components/Auth/Register";
 import Header from "../Components/Header";
 import { Main } from "../Components/Main";
 import TodoModal from "../Components/Todo/TodoModal";
-import { useModal } from "../store";
+import { useUser } from "../hooks/useUser";
+import { useLoginModal } from "../store";
 
 function AppLayout() {
-  const show = useModal((state) => state.show);
-
   return (
     <div className="app_layout">
       <Header />
@@ -13,7 +14,9 @@ function AppLayout() {
       <footer>
         <p>A fullstack todo app powered by riziUI</p>
       </footer>
-      {show && <TodoModal />}
+      <TodoModal />
+      <Register />
+      <Login />
     </div>
   );
 }

@@ -15,6 +15,9 @@ body {
   line-height: 1.2;
   text-rendering: optimizeLegibility;
 }
+.ml-2 {
+  margin-left: 30px;
+}
 ul {
   li {
     list-style: none;
@@ -31,7 +34,12 @@ a {
 // --------------------------------
 // Utilies Styles
 // --------------------------------
-
+.pt-2 {
+  padding-top: 20px;
+}
+.align-end {
+  text-align: end;
+}
 @import url("../scss/layout");
 // --------------------------------
 // ui Styles
@@ -69,6 +77,18 @@ header {
       background-color: #ddd;
       text-align: center;
     }
+    figcaption {
+      width: 40px;
+      font-weight: 500;
+      height: 40px;
+      font-size: 20px;
+      line-height: 22px;
+      border-radius: 50%;
+      background-color: #ddd;
+      text-align: center;
+      display: grid;
+      place-content: center;
+    }
   }
   h3 {
     font-size: 18px;
@@ -101,6 +121,7 @@ header {
       a {
         padding: 10px 10px;
         font-weight: 600;
+        cursor: pointer;
       }
     }
   }
@@ -263,12 +284,23 @@ button {
   border-radius: 5px;
   background-color: #fafafa;
   cursor: pointer;
+  &:disabled {
+    background-color: rgb(222, 188, 255) !important;
+  }
   &.medium {
     padding: 10px 20px;
     background: #eee;
     font-weight: 500;
     &:hover {
       background-color: #f5f5f5;
+    }
+  }
+  &.primary {
+    background-color: rgb(168, 81, 255);
+    color: #fff;
+    font-weight: 500;
+    &:hover {
+      background-color: rgb(157, 59, 255);
     }
   }
   &:hover {
@@ -292,6 +324,16 @@ h2.Todo_head {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
+  }
+}
+
+// ------------------------------------
+// login form styles
+// ------------------------------------
+.login-box {
+  h2 {
+    font-size: 30px;
+    text-align: center;
   }
 }
 

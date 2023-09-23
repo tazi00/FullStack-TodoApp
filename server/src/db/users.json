@@ -1,23 +1,40 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "rickzi",
+      "id": "9413395c-7ad7-4d9a-8430-49e47281fc93",
+      "name": "boboiboy",
       "img": "",
-      "email": "email",
+      "email": "boboi@1123gmail.com",
       "todos": [
         {
-          "id": "2133",
-          "title": "data.title",
-          "cattegory": "data.cattegor",
-          "priority": "data.priorty",
-          "startingData": "formatDate(startingDate)",
-          "endingData": "formatDate(endingDate)",
-          "alertMsg": "data.alert",
-          "description": "data.desc",
-          "status": "pending"
+          "id": 1,
+          "title": "Homework",
+          "completed": false,
+          "priotiy": "medium"
         }
-      ]
+      ],
+      "friends": []
+    },
+    {
+      "id": "16ab8557-af42-43c2-8f64-d75a21cd2692",
+      "name": "riki008",
+      "img": "",
+      "email": "riki0540245@gmail.com",
+      "todos": [
+        {
+          "id": 1,
+          "title": "office work",
+          "completed": false,
+          "priotiy": "medium"
+        },
+        {
+          "id": 2,
+          "title": "working",
+          "completed": false,
+          "priotiy": "medium"
+        }
+      ],
+      "friends": []
     }
   ]
 }

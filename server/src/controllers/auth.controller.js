@@ -5,6 +5,7 @@ import { validationResult } from "express-validator";
 import { getAllUsers } from "../model/auth.model.js";
 import { generateToken } from "../utils/generateToken.js";
 import { invalidatedTokens } from "../middlewares/auth/restrictionMiddleware.js";
+import { getUsers, setUserData } from "../model/user.model.js";
 export async function authLogin(req, res) {
   try {
     const { identifier, password } = req.body;
@@ -19,13 +20,27 @@ export async function authLogin(req, res) {
 
     if (user && user.password === password) {
       const token = generateToken(user.userName);
-      res.json({ msg: "Authentication successful", token });
+      const parsedUser = await getUsers();
+      const resUser = parsedUser.users.find((u) => u.name === user.userName);
+      const userInfo = {
+        id: resUser.id,
+        name: resUser.name,
+        image: resUser.img,
+        email: resUser.email,
+        token: token,
+        role: "authenticated",
+      };
+      res.json({ msg: "Authentication successful", userInfo });
+    } else if (user && user.password !== password) {
+      res.status(401).json({ error: "Password didnt match" });
+    } else if (!user && user.password === password) {
+      res.status(401).json({ error: "User not Regisered" });
     } else {
-      res.status(401).json({ error: "Authentication failed" });
+      res.status(401).json({ error: "Credentials are Incorrect" });
     }
   } catch (err) {
     console.error("Error during login:", err);
-    res.status(500).json({ error: "An error occurred during login" });
+    res.status(500).json({ error: "Credetials are Incorrect" });
   }
 }
 
@@ -39,9 +54,9 @@ export async function authRegister(req, res) {
       password: password,
       filePath: usersPath, // You can set this value as needed
     };
-
     const result = await registerUser(newUser);
     if (result === "User has been appended.") {
+      await setUserData(newUser);
       res.json({ msg: "User registered successfully" });
     } else {
       res

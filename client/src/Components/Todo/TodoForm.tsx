@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import TodoDatePicker from "./TodoDatePicker";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { DatePickerProps } from "../../Ui/DatePicker";
-import { formatDate } from "../utilities/DateFormatter";
+import { DatePickerProps } from "../../rickziUi/DatePicker";
+import { formatDate } from "../../utilities/DateFormatter";
 type Inputs = {
   title: string;
   cattegory: string;
