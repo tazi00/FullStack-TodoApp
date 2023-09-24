@@ -14,7 +14,7 @@ function getDataFromLocalStore<T>(name: string): T | null {
   return null;
 }
 
-function setDataToLocalStore<T>(name: string, value: any): void {
+function setDataToLocalStore<T>(name: string, value: T): void {
   if (!name) return;
 
   try {

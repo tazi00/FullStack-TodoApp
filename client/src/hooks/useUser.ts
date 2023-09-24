@@ -5,11 +5,12 @@ export function useUser() {
   const { data: user, isLoading } = useQuery({
     queryKey: ["user"],
     queryFn: fetchUserData,
+    initialData: undefined,
   });
 
   return {
     user,
     isLoading,
-    isAuthenticated: user?.value?.role === "authenticated",
+    isAuthenticated: user?.role === "authenticated",
   };
 }

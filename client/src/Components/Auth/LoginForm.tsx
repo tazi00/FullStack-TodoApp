@@ -13,7 +13,7 @@ function LoginForm() {
   const showpassword = useRegisterModal((state) => state.showPassword);
   const togglePass = useRegisterModal((state) => state.togglePassword);
   const closeModal = useLoginModal((state) => state.closeModal);
-  const { todoLogin, isLoading, error: isError } = useLogin();
+  const { login, isLoading, error } = useLogin();
   const {
     register,
     handleSubmit,
@@ -21,18 +21,16 @@ function LoginForm() {
     setFocus,
   } = useForm<LoginCredentials>();
 
-  console.log();
   useEffect(() => {
     setFocus("identifier");
   }, [setFocus]);
 
   const onSubmit: SubmitHandler<LoginCredentials> = async (data) => {
     try {
-      await todoLogin(data);
+      await login(data);
     } catch (error) {
       console.log(error);
     }
-    console.log(data);
   };
 
   const passwordContainerVariants = {
@@ -132,7 +130,7 @@ function LoginForm() {
         </h4>
         <h5>Forgot Password?</h5>
       </div>
-      {isError && <ErrorNotifier errorMsg={isError} />}
+      {error && <ErrorNotifier errorMsg={error.toString()} />}
       {isLoading && <LoadingNotifier title={"Please wait ..."} />}
     </>
   );

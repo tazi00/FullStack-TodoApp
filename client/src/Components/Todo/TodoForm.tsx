@@ -1,32 +1,28 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import TodoDatePicker from "./TodoDatePicker";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { DatePickerProps } from "../../rickziUi/DatePicker";
+import { useForm } from "react-hook-form";
 import { formatDate } from "../../utilities/DateFormatter";
 type Inputs = {
   title: string;
   cattegory: string;
-  priority: string;
-  alertMsg: string;
+  priorty: string;
+  alert: string;
   desc: string;
   startingDate: string;
   EndingDate: string;
 };
+
 function TodoForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const [startingDate, setStartingDate] = useState<DatePickerProps>();
-  const [endingDate, setEndingDate] = useState<DatePickerProps>();
-  function onSubmit(data) {
+  const { register, handleSubmit } = useForm<Inputs>();
+  const [startingDate, setStartingDate] = useState<Date | null>(null);
+  const [endingDate, setEndingDate] = useState<Date | null>(null);
+  function onSubmit(data: Inputs) {
     const newdata = {
       title: data.title,
       cattegory: data.cattegory,
       priority: data.priorty,
-      startingData: formatDate(startingDate),
-      endingData: formatDate(endingDate),
+      startingData: formatDate(String(startingDate)),
+      endingData: formatDate(String(endingDate)),
       alertMsg: data.alert,
       description: data.desc,
     };
