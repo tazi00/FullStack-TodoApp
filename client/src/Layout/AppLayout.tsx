@@ -3,8 +3,6 @@ import Register from "../Components/Auth/Register";
 import Header from "../Components/Header";
 import { Main } from "../Components/Main";
 import TodoModal from "../Components/Todo/TodoModal";
-import { useUser } from "../hooks/useUser";
-import { useLoginModal } from "../store";
 
 function AppLayout() {
   return (

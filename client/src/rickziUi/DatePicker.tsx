@@ -135,7 +135,7 @@ function DatePickerModal({ value, onChange, setIsOpen }: DatePickerModalProps) {
             }}
             className={`date ${
               !isSameMonth(date, visibleMonth) && "date-picker-other-month-date"
-            } ${isSameDay(date, value) && "selected"} ${
+            } ${isSameDay(date, Number(value)) && "selected"} ${
               isToday(date) && "today"
             } ${isPastDate(date) ? "disabled" : "selectable"}`}
             key={date.toDateString()}

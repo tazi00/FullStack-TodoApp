@@ -1,4 +1,3 @@
-import React from "react";
 import { useUser } from "../../hooks/useUser";
 import { getRandomObject } from "../../utilities/generateRandomColors";
 import { clearDataLocalStore } from "../../BrowserData/localStore";
@@ -10,23 +9,22 @@ function LoggedOutAuth() {
   const queryClient = useQueryClient();
 
   function logout() {
-    console.log("logout");
     clearDataLocalStore();
     queryClient.setQueriesData(["user"], null);
   }
   return (
     <nav className="auth_box login ">
       <figure>
-        {user?.value?.img ? (
+        {user?.img ? (
           <img src="" alt="" />
         ) : (
-          <figcaption style={getRandomObject()}>
-            {user?.value?.userName?.slice(0, 1).toUpperCase()}
+          <figcaption style={getRandomObject() || {}}>
+            {user?.userName?.slice(0, 1).toUpperCase()}
           </figcaption>
         )}
       </figure>
       <h3>
-        {user?.value?.userName} <span>{user?.value?.email}</span>
+        {user?.userName} <span>{user?.email}</span>
       </h3>
       <Button className="ml-2" onClick={logout}>
         Logout
